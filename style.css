@@ -1,0 +1,270 @@
+/* Fitzroy Pirate Portraits — Styles */
+
+:root {
+  --bg: #211915;
+  --ink: #aa7a3c;
+  --ink-dim: rgba(170, 122, 60, 0.50);
+  --ink-faint: rgba(170, 122, 60, 0.18);
+  --card-bg: rgba(0, 0, 0, 0.22);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 6rem 0 5rem;
+}
+
+.title-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+}
+
+/* Portrait Card */
+.portrait-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.portrait-media {
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--card-bg);
+  min-height: 373px;
+}
+
+.portrait-media img,
+.portrait-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.portrait-media video {
+  opacity: 0;
+}
+
+.portrait-card:hover .portrait-media video {
+  opacity: 1;
+}
+
+.portrait-card:hover .portrait-media img {
+  opacity: 0;
+}
+
+.portrait-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.portrait-label .name {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.portrait-label .role {
+  font-size: 0.95rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-dim);
+}
+
+/* Queen Spotlight */
+.queen {
+  text-align: center;
+}
+
+.queen-portrait-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.queen-card {
+  width: 280px;
+  max-width: 280px;
+  margin: 0 auto;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.queen-info {
+  text-align: center;
+}
+
+.queen-name {
+  font-family: 'Stardom-Regular', 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.queen-role {
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* Dividers */
+.divider {
+  text-align: center;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.divider p {
+  font-family: 'Stardom-Regular', 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  color: var(--ink-faint);
+  position: relative;
+}
+
+.divider p::before,
+.divider p::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 1px;
+  background: var(--ink-faint);
+}
+
+.divider p::before {
+  right: calc(100% + 1rem);
+}
+
+.divider p::after {
+  left: calc(100% + 1rem);
+}
+
+/* Department Sections */
+.dept {
+  padding: 2rem 0;
+  position: relative;
+}
+
+.ghost {
+  font-family: 'Stardom-Regular', 'Cormorant Garamond', Georgia, serif;
+  font-size: 6rem;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--ink-faint);
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dept-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.ornament {
+  font-family: 'Stardom-Regular', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 0.5rem;
+}
+
+/* Portrait Grid */
+.portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  row-gap: 30px;
+}
+
+/* Pirates of the Past - no fade */
+.dept.past .portrait-label .role {
+  color: var(--ink-dim);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--ink-faint);
+  margin-top: 2rem;
+}
+
+footer p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-dim);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .h-fitzroy {
+    font-size: 3rem;
+  }
+  
+  .h-pirate {
+    font-size: 1.4rem;
+  }
+  
+  .portrait-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .ghost {
+    font-size: 4rem;
+  }
+}

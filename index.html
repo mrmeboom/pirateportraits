@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitzroy Pirate Portraits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/stardom.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <img src="./src/img/title.webp" alt="Fitzroy Pirate Portraits Gallery" class="title-image" />
+      <p class="subtitle">Rogues, Royals & Officers of the Realm</p>
+    </header>
+
+    <main id="app"></main>
+
+    <footer>
+      <p>© 2026 Fitzroy — All rights reserved</p>
+    </footer>
+  </div>
+
+  <script src="./data.js"></script>
+  <script>
+    const app = document.getElementById('app');
+
+    function toUppercase(slug) {
+      return slug.toUpperCase();
+    }
+
+    function renderPortraitCard(member) {
+      const upperSlug = toUppercase(member.slug);
+      return `
+        <div class="portrait-card" data-name="${member.slug}">
+          <div class="portrait-media">
+            <img src="./src/img/${upperSlug}.png" alt="${member.name}" class="still" />
+            <video
+              src="./src/mp4/${upperSlug}.mp4"
+              class="anim"
+              muted
+              loop
+              playsinline
+              preload="none"
+            ></video>
+          </div>
+          <div class="portrait-label">
+            <span class="name">${member.name}</span>
+            <span class="role">${member.role}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSpotlight(section) {
+      const member = section.members[0];
+      const upperSlug = toUppercase(member.slug);
+      return `
+        <section class="dept queen">
+          <p class="ghost">Her Royal Majesty</p>
+          <h3 class="dept-title"><span class="ornament">✦</span> Her Royal Majesty <span class="ornament">✦</span></h3>
+          <div class="queen-portrait-wrapper">
+            <div class="portrait-card queen-card" data-name="${member.slug}">
+              <div class="portrait-media">
+                <img src="./src/img/${upperSlug}.png" alt="${member.name}" class="still" />
+                <video
+                  src="./src/mp4/${upperSlug}.mp4"
+                  class="anim"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                ></video>
+              </div>
+            </div>
+            <div class="queen-info">
+              <p class="queen-name">${member.name}</p>
+              <p class="queen-role">${member.role.toUpperCase()}</p>
+            </div>
+          </div>
+        </section>
+        <section class="divider">
+          <p>the court</p>
+        </section>
+      `;
+    }
+
+    function renderDepartment(section) {
+      const pastClass = section.past ? ' past' : '';
+      const ghostText = section.past ? 'Legends' : section.department;
+      
+      const cards = section.members.map(renderPortraitCard).join('');
+      
+      return `
+        <section class="dept${pastClass}">
+          <p class="ghost">${ghostText}</p>
+          <h3 class="dept-title"><span class="ornament">✦</span> ${section.department}</h3>
+          <div class="portrait-grid">
+            ${cards}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderDivider(text) {
+      return `
+        <section class="divider">
+          <p>${text}</p>
+        </section>
+      `;
+    }
+
+    function render() {
+      let html = '';
+      
+      roster.forEach((section, index) => {
+        if (section.spotlight) {
+          html += renderSpotlight(section);
+        } else if (section.past && index > 0) {
+          html += renderDivider('gone but not forgotten');
+          html += renderDepartment(section);
+        } else {
+          html += renderDepartment(section);
+        }
+      });
+      
+      app.innerHTML = html;
+      
+      // Initialize video hover interactions
+      document.querySelectorAll('.portrait-card').forEach(card => {
+        const video = card.querySelector('video');
+        if (!video) return;
+
+        card.addEventListener('mouseenter', () => {
+          video.currentTime = 0;
+          video.play();
+        });
+
+        card.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
