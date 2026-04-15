@@ -32,9 +32,10 @@ const roster = [
   {
     department: "Strategy",
     members: [
-      { name: "Derk",  role: "High Admiral of Foresight",       slug: "derk"  },
-      { name: "Emma",  role: "Royal Strategist of the Court",   slug: "emma"  },
-      { name: "Mijke", role: "Squire of Insight",               slug: "mijke" },
+      { name: "Derk",    role: "High Admiral of Foresight",       slug: "derk"    },
+      { name: "Emma",    role: "Royal Strategist of the Court",   slug: "emma"    },
+      { name: "Mijke",   role: "Squire of Insight",               slug: "mijke"   },
+      { name: "Jacinta", role: "Seeker of Hidden Truths",         slug: "jacinta" },
     ],
   },
 
@@ -46,7 +47,6 @@ const roster = [
       { name: "Andrea",   role: "Countess of Timelines",        slug: "andrea"   },
       { name: "Jannieke", role: "Baroness of Deliverables",     slug: "jannieke" },
       { name: "Iris",     role: "Mistress of the Moving Tides", slug: "iris"     },
-      { name: "Jacinta",  role: "Seeker of Hidden Truths",      slug: "jacinta"  },
     ],
   },
 
@@ -70,9 +70,9 @@ const roster = [
       { name: "Koos",    role: "Master of Mischief & Copycraft", slug: "koos" },
       { name: "Joris",   role: "Swordsmith of Concepts",      slug: "joris"   },
       { name: "Maarten", role: "Navigator of Bold Ideas",     slug: "maarten" },
+      { name: "Tim",     role: "Raider of Deadlines",         slug: "tim"     },
       { name: "Axel",    role: "Deckhand of Wild Concepts",   slug: "axel"    },
       { name: "Amelia",  role: "Bearer of Untamed Ideas",     slug: "amelia"  },
-      { name: "Tim",     role: "Raider of Deadlines",         slug: "tim"     },
     ],
   },
 
