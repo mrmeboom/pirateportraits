@@ -50,6 +50,14 @@ const roster = [
     ],
   },
 
+  // ── PRODUCTION ───────────────────────────────────────────────
+  {
+    department: "Production",
+    members: [
+      { name: "Raf", role: "Harbourmaster of the Grand Endeavour", slug: "raf" },
+    ],
+  },
+
   // ── DESIGN ───────────────────────────────────────────────────
   {
     department: "Design",
