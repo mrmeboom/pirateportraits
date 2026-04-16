@@ -308,6 +308,22 @@ footer p {
   margin-bottom: 3rem;
   padding: 2rem 0;
   border-top: 1px solid var(--ink-faint);
+  position: relative;
+}
+
+.menu-round .ghost {
+  font-family: 'Stardom-Regular', 'Cormorant Garamond', Georgia, serif;
+  font-size: 4rem;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--ink-faint);
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .round-title {
