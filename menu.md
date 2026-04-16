@@ -25,7 +25,7 @@ Prosecco & Elderflower
 
 ROUND 2 — READ THE CHARTS
 
-The horizon opens. The crew gets comfortable.
+The harbour is full. The night is young.
 
 Bite
 Fresh prawn
@@ -39,7 +39,7 @@ Tequila, Triple Sec, Lime
 
 ROUND 3 — LOAD THE CANNONS
 
-The black flag goes up.
+The plan is set. The sea is waiting.
 
 Bite
 Chorizo & Manchego
@@ -53,7 +53,7 @@ Dark rum, Ginger beer, Lime
 
 ROUND 4 — RAISE THE FLAG
 
-The full stop before the feast.
+No turning back now.
 
 Bite
 Dark chocolate. That's all.
